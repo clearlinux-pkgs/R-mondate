@@ -4,7 +4,7 @@
 #
 Name     : R-mondate
 Version  : 0.10.01.02
-Release  : 14
+Release  : 15
 URL      : http://cran.r-project.org/src/contrib/mondate_0.10.01.02.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/mondate_0.10.01.02.tar.gz
 Summary  : Keep track of dates in terms of months
@@ -23,8 +23,10 @@ No detailed description available
 %install
 rm -rf %{buildroot}
 export LANG=C
-export CFLAGS="$CFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition -freorder-functions "
-export CXXFLAGS="$CXXFLAGS -O3 -flto -ffunction-sections -fno-semantic-interposition -freorder-functions "
+export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
@@ -32,6 +34,7 @@ mkdir -p %{buildroot}/usr/lib64/R/library
 R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library mondate
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost

@@ -4,15 +4,13 @@
 #
 Name     : R-mondate
 Version  : 0.10.01.02
-Release  : 58
+Release  : 59
 URL      : https://cran.r-project.org/src/contrib/mondate_0.10.01.02.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mondate_0.10.01.02.tar.gz
 Summary  : Keep track of dates in terms of months
 Group    : Development/Tools
 License  : GPL-2.0+
-BuildRequires : R-zoo
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
 Model dates as at close of business.
@@ -21,21 +19,22 @@ Model dates as at close of business.
 
 %prep
 %setup -q -c -n mondate
+cd %{_builddir}/mondate
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571868947
+export SOURCE_DATE_EPOCH=1589536164
 
 %install
-export SOURCE_DATE_EPOCH=1571868947
+export SOURCE_DATE_EPOCH=1589536164
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

@@ -4,7 +4,7 @@
 #
 Name     : R-mondate
 Version  : 0.10.02
-Release  : 79
+Release  : 80
 URL      : https://cran.r-project.org/src/contrib/mondate_0.10.02.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mondate_0.10.02.tar.gz
 Summary  : Keep Track of Dates in Terms of Months
